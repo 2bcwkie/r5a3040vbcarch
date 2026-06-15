@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" id="vp" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<script>if(history.scrollRestoration)history.scrollRestoration='manual';</script>
+<meta name="description" content="サレジオ中学校バレーボール部 動画アーカイブ">
+<meta name="robots" content="noindex,nofollow">
+<title>サレジオ中 バレー部 アーカイブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   DESIGN TOKENS — 案B「誇りの年代記」
+═══════════════════════════════════════ */
+:root{
+  --c-navy-deep:#0D2240;
+  --c-navy:#1A3D6B;
+  --c-navy-mid:#1E4880;
+  --c-navy-light:#E8EFF8;
+  --c-gold:#C8940F;
+  --c-gold-light:#F5C842;
+  --c-gold-pale:#FDF4DC;
+  --c-ivory:#F7F5F0;
+  --c-ivory-dark:#EDE9E0;
+  --c-white:#FFFFFF;
+  --c-slate:#6B7A8D;
+  --c-slate-light:#A8B5C4;
+  --c-border:#DDD8CE;
+  --c-border-light:#EDE9E0;
+  --c-text:#0D1F33;
+  --c-text-2:#5A6B7D;
+  /* カテゴリカラー */
+  --cat-official-bg:#0D2240; --cat-official-tx:#F5C842;
+  --cat-cup-bg:#FDF4DC;      --cat-cup-tx:#7A5C00;    --cat-cup-bd:#E8CC6A;
+  --cat-practice-bg:#EBF5EC; --cat-practice-tx:#2A6B30; --cat-practice-bd:#A8D4AB;
+  --cat-event-bg:#EEF0FE;    --cat-event-tx:#3D4BAB;  --cat-event-bd:#B0B8EE;
+  --cat-school-bg:#FFF0F3;   --cat-school-tx:#8B2D3E; --cat-school-bd:#F0B0BB;
+  /* layout */
+  --radius-sm:6px; --radius-md:10px; --radius-lg:14px;
+  --shadow-card:0 1px 3px rgba(13,34,64,.07),0 2px 10px rgba(13,34,64,.04);
+  --shadow-hover:0 4px 18px rgba(13,34,64,.12),0 1px 4px rgba(13,34,64,.06);
+  --font-serif:'Noto Serif JP',serif;
+  --font-sans:'Noto Sans JP',sans-serif;
+  --font-display:'Cormorant Garamond',serif;
+  --tap:44px;
+}
+
+/* ─── RESET ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip;touch-action:manipulation}
+body{font-family:var(--font-sans);background:var(--c-ivory);color:var(--c-text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-width:320px;touch-action:manipulation;overflow-wrap:break-word}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+input,select{font-family:inherit}
+img,iframe{display:block;max-width:100%;height:auto}
+/* focus visible */
+:focus-visible{outline:2px solid var(--c-gold);outline-offset:2px;border-radius:3px}
+
+/* ─── SKIP LINK ─── */
+.skip-link{position:absolute;top:-99px;left:12px;background:var(--c-navy-deep);color:var(--c-gold-light);padding:8px 16px;border-radius:var(--radius-sm);font-size:13px;z-index:9999;transition:top .1s}
+.skip-link:focus{top:12px}
+
+/* ══════════════════════════
+   HEADER
+══════════════════════════ */
+#site-header{
+  background:var(--c-navy-deep);
+  border-bottom:2px solid var(--c-gold);
+  position:sticky;top:0;z-index:200;
+}
+.hd-inner{
+  max-width:1040px;margin:0 auto;
+  padding:0 16px;
+  display:flex;align-items:center;
+  min-height:54px;gap:12px;
+}
+/* logo */
+.logo{display:flex;align-items:center;gap:9px;flex-shrink:0;min-width:0}
+.logo-crest{
+  width:36px;height:36px;border:1.5px solid var(--c-gold);
+  border-radius:50%;overflow:hidden;flex-shrink:0;
+}
+.logo-crest img{width:100%;height:100%;object-fit:cover;display:block}
+.logo-txt{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.logo-school{font-family:var(--font-display);font-size:10px;color:var(--c-slate-light);letter-spacing:.08em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo-team{font-family:var(--font-serif);font-size:14px;font-weight:700;color:var(--c-gold-light);letter-spacing:.03em;white-space:nowrap}
+/* search */
+.hd-search{flex:1;max-width:380px;min-width:0;position:relative;display:flex;align-items:center}
+.hd-search svg{position:absolute;left:10px;width:14px;height:14px;stroke:rgba(255,255,255,.35);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}
+#searchInput{
+  width:100%;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-sm);
+  padding:8px 10px 8px 32px;font-size:14px;color:#fff;outline:none;
+  transition:border-color .18s,background .18s;
+  height:var(--tap);
+}
+#searchInput::placeholder{color:rgba(255,255,255,.38)}
+#searchInput:focus{border-color:var(--c-gold);background:rgba(255,255,255,.13)}
+/* clear btn */
+#clearSearch{
+  display:none;position:absolute;right:8px;
+  background:none;border:none;padding:4px;
+  color:rgba(255,255,255,.45);line-height:1;
+}
+#clearSearch svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round}
+#clearSearch:hover{color:rgba(255,255,255,.8)}
+/* updated */
+.hd-meta{margin-left:auto;display:flex;align-items:center;gap:6px;flex-shrink:0}
+.upd-badge{font-size:11px;color:var(--c-slate-light);display:flex;align-items:center;gap:5px}
+.upd-dot{width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ══════════════════════════
+   YEAR NAV
+══════════════════════════ */
+#year-nav{
+  background:var(--c-navy-deep);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.yn-inner{
+  max-width:1040px;margin:0 auto;padding:0 16px;
+  display:flex;overflow-x:auto;scrollbar-width:none;gap:2px;
+}
+.yn-inner::-webkit-scrollbar{display:none}
+.year-tab{
+  padding:10px 22px;min-height:var(--tap);
+  font-family:var(--font-display);font-size:20px;font-weight:600;
+  color:rgba(255,255,255,.65);background:none;border:none;
+  border-bottom:2px solid transparent;white-space:nowrap;
+  transition:color .15s,border-color .15s;letter-spacing:.04em;
+  flex-shrink:0;
+}
+.year-tab:hover{color:rgba(255,255,255,.9)}
+.year-tab[aria-selected="true"]{color:var(--c-gold-light);border-bottom-color:var(--c-gold)}
+
+/* ══════════════════════════
+   FILTER BAR
+══════════════════════════ */
+#filter-bar{
+  background:var(--c-white);
+  border-bottom:1px solid var(--c-border);
+  position:sticky;top:var(--header-h,54px);z-index:190;
+}
+.fb-inner{
+  max-width:1040px;margin:0 auto;padding:10px 16px;
+  display:flex;align-items:center;gap:7px;overflow-x:auto;scrollbar-width:none;
+}
+.fb-inner::-webkit-scrollbar{display:none}
+/* multi-select chips */
+.filter-chip{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:0 14px;height:36px;min-height:var(--tap);
+  border-radius:20px;border:1px solid var(--c-border);
+  background:var(--c-ivory);color:var(--c-text-2);font-size:13px;
+  white-space:nowrap;flex-shrink:0;transition:all .14s;
+  position:relative;
+}
+.filter-chip svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.filter-chip:hover{border-color:var(--c-navy);color:var(--c-navy)}
+.filter-chip[aria-pressed="true"]{background:var(--c-navy-deep);border-color:var(--c-navy-deep);color:var(--c-gold-light);font-weight:500}
+/* check mark inside active chip */
+.chip-check{display:none;width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round;flex-shrink:0}
+.filter-chip[aria-pressed="true"] .chip-check{display:block}
+.filter-chip[aria-pressed="true"] .chip-icon{display:none}
+.fb-divider{width:1px;height:20px;background:var(--c-border);flex-shrink:0}
+.fb-right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+#resultCount{font-size:13px;color:var(--c-slate);white-space:nowrap}
+
+/* ══════════════════════════
+   TOOLBAR
+══════════════════════════ */
+.toolbar{
+  max-width:1040px;margin:0 auto;
+  padding:16px 16px 12px;
+  display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+}
+/* view toggle */
+.view-toggle{display:flex;border:1px solid var(--c-border);border-radius:var(--radius-sm);overflow:hidden;background:var(--c-white);flex-shrink:0}
+.view-btn{
+  padding:0 12px;height:36px;min-height:var(--tap);
+  display:flex;align-items:center;gap:5px;
+  font-size:13px;color:var(--c-slate);background:none;border:none;
+  transition:all .14s;
+}
+.view-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.view-btn[aria-pressed="true"]{background:var(--c-navy-deep);color:var(--c-gold-light)}
+/* sort */
+.sort-sel{
+  height:36px;min-height:var(--tap);padding:0 28px 0 10px;
+  font-size:13px;color:var(--c-text-2);
+  background:var(--c-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B7A8D' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 8px center;
+  border:1px solid var(--c-border);border-radius:var(--radius-sm);
+  outline:none;appearance:none;cursor:pointer;
+}
+.toolbar-count{font-size:13px;color:var(--c-slate);margin-left:auto}
+
+/* ══════════════════════════
+   MAIN
+══════════════════════════ */
+main{max-width:1040px;margin:0 auto;padding:0 16px 72px;overflow-x:hidden}
+
+/* ─── section header ─── */
+.sec-head{
+  display:flex;align-items:baseline;gap:10px;
+  padding:14px 0 10px;border-bottom:1px solid var(--c-border);
+  margin-bottom:14px;overflow:hidden;
+}
+.sec-year{font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--c-navy-deep);letter-spacing:-.02em;line-height:1}
+.sec-wareki{font-family:var(--font-serif);font-size:15px;color:var(--c-slate)}
+.sec-cnt{margin-left:auto;font-size:14px;color:var(--c-slate)}
+
+/* ─── card grid ─── */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));
+  gap:14px;margin-bottom:32px;overflow:hidden;
+}
+
+/* ══════════════════════════
+   VIDEO CARD
+══════════════════════════ */
+.vcard{
+  background:var(--c-white);
+  border:1px solid var(--c-border);
+  border-top:3px solid var(--c-gold);
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-card);
+  overflow:hidden;min-width:0;
+  transition:box-shadow .2s,transform .2s,border-top-color .2s;
+  animation:fadeUp .32s ease both;
+}
+.vcard:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.vcard.open{border-top-color:var(--c-navy-deep)}
+
+/* card animation stagger */
+.vcard:nth-child(1){animation-delay:.03s}.vcard:nth-child(2){animation-delay:.07s}
+.vcard:nth-child(3){animation-delay:.11s}.vcard:nth-child(4){animation-delay:.15s}
+.vcard:nth-child(5){animation-delay:.19s}.vcard:nth-child(6){animation-delay:.23s}
+.vcard:nth-child(7){animation-delay:.27s}.vcard:nth-child(8){animation-delay:.31s}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* card header button */
+.vcard-trigger{
+  width:100%;text-align:left;background:none;border:none;
+  padding:16px 18px 14px;display:block;
+  overflow:hidden;min-width:0;max-width:100%;
+}
+/* meta row */
+.vcard-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:5px}
+/* category badge */
+.cat-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12px;font-weight:500;letter-spacing:.03em;
+  padding:4px 11px;border-radius:20px;
+}
+.cat-badge svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;flex-shrink:0}
+.b-official{background:var(--cat-official-bg);color:var(--cat-official-tx)}
+.b-cup{background:var(--cat-cup-bg);color:var(--cat-cup-tx);border:1px solid var(--cat-cup-bd)}
+.b-practice{background:var(--cat-practice-bg);color:var(--cat-practice-tx);border:1px solid var(--cat-practice-bd)}
+.b-event{background:var(--cat-event-bg);color:var(--cat-event-tx);border:1px solid var(--cat-event-bd)}
+.b-school{background:var(--cat-school-bg);color:var(--cat-school-tx);border:1px solid var(--cat-school-bd)}
+
+.vcard-date{font-family:var(--font-display);font-size:15px;color:var(--c-slate);letter-spacing:.03em;flex-shrink:1;white-space:nowrap}
+.vcard-title{font-family:var(--font-serif);font-size:16px;font-weight:700;color:var(--c-navy-deep);line-height:1.45;margin-bottom:6px;letter-spacing:-.01em;word-break:break-word;overflow-wrap:break-word}
+.vcard-tournament{font-size:13px;color:var(--c-slate);margin-bottom:5px;line-height:1.45;word-break:break-word;overflow-wrap:break-word}
+.vcard-venue{display:flex;align-items:flex-start;gap:5px;font-size:13px;color:var(--c-slate-light);margin-bottom:10px;word-break:break-word;overflow-wrap:break-word}
+.vcard-venue svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+/* footer row */
+.vcard-foot{border-top:1px solid var(--c-border-light);padding-top:10px;display:flex;align-items:center;justify-content:space-between}
+.vcnt{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--c-slate)}
+.vcnt svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.vopen-btn{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--c-navy);font-weight:500;background:none;border:none;padding:0;transition:color .14s;min-height:var(--tap)}
+.vopen-btn:hover{color:var(--c-gold)}
+.vopen-btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .24s;flex-shrink:0}
+.vcard.open .vopen-btn svg{transform:rotate(180deg)}
+
+/* ─── accordion panel ─── */
+.vcard-panel{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .28s ease;
+  border-top:1px solid var(--c-border-light);
+}
+.vcard.open .vcard-panel{grid-template-rows:1fr}
+.vcard-panel-inner{overflow:hidden;background:var(--c-ivory)}
+
+/* YouTube open button — replaces iframe */
+.yt-hero{
+  display:flex;align-items:center;justify-content:center;
+  padding:20px 16px;background:var(--c-navy-deep);
+}
+.yt-hero-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;min-height:var(--tap);
+  background:#FF0000;color:#fff;border:none;border-radius:var(--radius-sm);
+  font-family:var(--font-sans);font-size:14px;font-weight:500;
+  cursor:pointer;transition:background .14s,transform .14s;
+  text-decoration:none;text-align:center;word-break:keep-all;
+  max-width:100%;
+}
+.yt-hero-btn:hover{background:#CC0000;transform:scale(1.03)}
+.yt-hero-btn svg{width:20px;height:20px;fill:#fff;stroke:none;flex-shrink:0}
+
+/* video list */
+.vlist{padding:14px 18px 16px;overflow:hidden}
+.vlist-hd{font-size:12px;font-weight:500;color:var(--c-slate);letter-spacing:.07em;margin-bottom:10px;text-transform:uppercase}
+.vlist-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--c-border-light);font-size:14px;color:var(--c-text-2);line-height:1.5;word-break:break-word;overflow-wrap:break-word}
+.vlist-item:last-of-type{border-bottom:none}
+.vlist-num{font-family:var(--font-display);font-size:14px;color:var(--c-slate-light);flex-shrink:0;min-width:22px;padding-top:1px}
+.vlist-actions{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
+.share-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  height:38px;min-height:var(--tap);padding:0 14px;
+  border-radius:var(--radius-sm);font-size:13px;font-weight:500;
+  border:none;transition:background .14s,color .14s;
+}
+.share-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.share-btn{background:var(--c-gold-pale);color:#7A5C00;cursor:pointer}
+.share-btn:hover{background:#F5E5A0}
+/* toast */
+#toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(12px);
+  background:var(--c-navy-deep);color:var(--c-gold-light);
+  font-size:12px;padding:8px 18px;border-radius:20px;
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:9000;white-space:nowrap;
+  max-width:calc(100vw - 32px);
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ══════════════════════════
+   TIMELINE VIEW
+══════════════════════════ */
+#timelineView{display:none}
+#timelineView.active{display:block}
+.tl-month{display:flex;align-items:flex-start;gap:14px;margin-bottom:22px}
+.tl-mon-label{flex-shrink:0;width:44px;text-align:right;padding-top:4px}
+.tl-mon-num{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--c-navy-deep);line-height:1}
+.tl-mon-yr{font-size:11px;color:var(--c-slate);line-height:1.3}
+.tl-spine{display:flex;flex-direction:column;align-items:center;flex-shrink:0;padding-top:7px}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--c-gold);box-shadow:0 0 0 2px var(--c-white),0 0 0 3.5px var(--c-gold);flex-shrink:0}
+.tl-line{width:1.5px;flex:1;min-height:16px;background:var(--c-border);margin-top:5px}
+.tl-items{flex:1;display:flex;flex-direction:column;gap:7px;padding-bottom:14px}
+.tl-item{
+  background:var(--c-white);border:1px solid var(--c-border);
+  border-left:3px solid var(--c-gold);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:10px 14px;cursor:pointer;
+  transition:border-left-color .14s,box-shadow .14s;
+  min-height:var(--tap);
+}
+.tl-item:hover{border-left-color:var(--c-navy);box-shadow:0 2px 10px rgba(13,34,64,.08)}
+.tl-item-top{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px;flex-wrap:wrap}
+.tl-item-title{font-family:var(--font-serif);font-size:14px;font-weight:700;color:var(--c-navy-deep);flex:1;min-width:0;line-height:1.4;word-break:break-word;overflow-wrap:break-word}
+.tl-item-date{font-family:var(--font-display);font-size:13px;color:var(--c-slate);flex-shrink:0}
+.tl-item-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+
+/* ══════════════════════════
+   EMPTY STATE
+══════════════════════════ */
+.empty{
+  text-align:center;padding:64px 20px;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.empty svg{width:40px;height:40px;stroke:var(--c-slate-light);fill:none;stroke-width:1.5;stroke-linecap:round}
+.empty-title{font-family:var(--font-serif);font-size:16px;color:var(--c-slate)}
+.empty-sub{font-size:13px;color:var(--c-slate-light)}
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+footer{
+  background:var(--c-navy-deep);border-top:2px solid var(--c-gold);
+  padding:22px 16px;text-align:center;
+}
+.ft-logo{font-family:var(--font-serif);font-size:14px;color:rgba(255,255,255,.45);margin-bottom:3px}
+.ft-sub{font-size:12px;color:rgba(255,255,255,.22)}
+
+/* ══════════════════════════
+   MOBILE
+══════════════════════════ */
+@media(max-width:600px){
+  .logo-school{display:none}
+  .logo-team{font-size:13px}
+  .hd-inner{min-height:50px}
+  .hd-search{max-width:none;flex:1}
+  .hd-meta{display:none}
+  .sort-sel{display:none}
+  .view-btn span{display:none}
+  .view-btn{padding:0 10px}
+  .toolbar-count{display:none}
+}
+@media(max-width:400px){
+  .logo-team{font-size:12px}
+  .year-tab{padding:9px 14px;font-size:17px}
+  .card-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">メインコンテンツへスキップ</a>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header" role="banner">
+  <div class="hd-inner">
+    <a class="logo" href="#" aria-label="サレジオ中学校バレーボール部 アーカイブ トップ">
+      <div class="logo-crest" aria-hidden="true">
+        <img src="data:image/png;base64,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" alt="" width="36" height="36">
+      </div>
+      <div class="logo-txt">
+        <span class="logo-school">Salesio Junior High School</span>
+        <span class="logo-team">バレーボール部 アーカイブ</span>
+      </div>
+    </a>
+
+    <div class="hd-search" role="search">
+      <svg aria-hidden="true" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><line x1="10.5" y1="10.5" x2="14" y2="14"/></svg>
+      <input type="search" id="searchInput"
+        placeholder="大会名・動画タイトルで検索…"
+        aria-label="動画を検索"
+        autocomplete="off" spellcheck="false">
+      <button id="clearSearch" aria-label="検索をクリア" title="クリア">
+        <svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg>
+      </button>
+    </div>
+
+    <div class="hd-meta" aria-label="更新情報">
+      <div class="upd-badge">
+        <div class="upd-dot" aria-hidden="true"></div>
+        <span id="lastUpdated">最終更新 読込中…</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ YEAR NAV ══ -->
+<nav id="year-nav" aria-label="年度フィルター">
+  <div class="yn-inner" role="tablist">
+    <button class="year-tab" role="tab" aria-selected="true"  data-year="all" id="tab-all">All</button>
+    <button class="year-tab" role="tab" aria-selected="false" data-year="2026" id="tab-2026">2026</button>
+    <button class="year-tab" role="tab" aria-selected="false" data-year="2025" id="tab-2025">2025</button>
+    <button class="year-tab" role="tab" aria-selected="false" data-year="2024" id="tab-2024">2024</button>
+    <button class="year-tab" role="tab" aria-selected="false" data-year="2023" id="tab-2023">2023</button>
+  </div>
+</nav>
+
+<!-- ══ FILTER BAR ══ -->
+<div id="filter-bar" role="region" aria-label="カテゴリフィルター">
+  <div class="fb-inner">
+
+    <button class="filter-chip" data-cat="公式戦" aria-pressed="false" aria-label="公式戦フィルター">
+      <!-- trophy icon -->
+      <svg class="chip-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2 6.2l4-.6z"/></svg>
+      <svg class="chip-check" viewBox="0 0 12 12" aria-hidden="true"><polyline points="1,6 4,10 11,2"/></svg>
+      公式戦
+    </button>
+
+    <button class="filter-chip" data-cat="招待・カップ戦" aria-pressed="false" aria-label="招待・カップ戦フィルター">
+      <svg class="chip-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 2h6v5a3 3 0 0 1-6 0V2z"/><path d="M5 4H3a2 2 0 0 0 0 4h2M11 4h2a2 2 0 0 0 0 4h-2"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="5" y1="14" x2="11" y2="14"/></svg>
+      <svg class="chip-check" viewBox="0 0 12 12" aria-hidden="true"><polyline points="1,6 4,10 11,2"/></svg>
+      招待・カップ戦
+    </button>
+
+    <button class="filter-chip" data-cat="練習・遠征" aria-pressed="false" aria-label="練習・遠征フィルター">
+      <svg class="chip-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+      <svg class="chip-check" viewBox="0 0 12 12" aria-hidden="true"><polyline points="1,6 4,10 11,2"/></svg>
+      練習・遠征
+    </button>
+
+    <button class="filter-chip" data-cat="部内行事" aria-pressed="false" aria-label="部内行事フィルター">
+      <svg class="chip-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14s-5-4.5-5-7.5a5 5 0 0 1 10 0C13 9.5 8 14 8 14z"/></svg>
+      <svg class="chip-check" viewBox="0 0 12 12" aria-hidden="true"><polyline points="1,6 4,10 11,2"/></svg>
+      部内行事
+    </button>
+
+    <button class="filter-chip" data-cat="学校行事" aria-pressed="false" aria-label="学校行事フィルター">
+      <svg class="chip-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 14V7l6-5 6 5v7"/><path d="M6 14v-4h4v4"/></svg>
+      <svg class="chip-check" viewBox="0 0 12 12" aria-hidden="true"><polyline points="1,6 4,10 11,2"/></svg>
+      学校行事
+    </button>
+
+    <div class="fb-divider" role="separator" aria-hidden="true"></div>
+    <div class="fb-right">
+      <span id="resultCount" aria-live="polite" aria-atomic="true"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOOLBAR ══ -->
+<div class="toolbar" role="toolbar" aria-label="表示設定">
+  <div class="view-toggle" role="group" aria-label="表示形式">
+    <button class="view-btn" id="btnGrid" aria-pressed="true" aria-label="グリッド表示" onclick="setView('grid')">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+      <span>グリッド</span>
+    </button>
+    <button class="view-btn" id="btnTimeline" aria-pressed="false" aria-label="年表表示" onclick="setView('timeline')">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><line x1="5" y1="4" x2="14" y2="4"/><line x1="5" y1="8" x2="12" y2="8"/><line x1="5" y1="12" x2="10" y2="12"/><circle cx="2.5" cy="4" r="1.5" fill="currentColor" stroke="none"/><circle cx="2.5" cy="8" r="1.5" fill="currentColor" stroke="none"/><circle cx="2.5" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
+      <span>年表</span>
+    </button>
+  </div>
+
+  <select class="sort-sel" id="sortSel" aria-label="並び順">
+    <option value="desc">新しい順</option>
+    <option value="asc">古い順</option>
+  </select>
+
+  <span class="toolbar-count" id="toolbarCount" aria-live="polite"></span>
+</div>
+
+<!-- ══ MAIN CONTENT ══ -->
+<main id="main-content">
+  <div id="gridView"  role="region" aria-label="動画グリッド"></div>
+  <div id="timelineView" role="region" aria-label="年表"></div>
+</main>
+
+<footer role="contentinfo">
+  <p class="ft-logo">令和5年入学 サレジオ中学校 バレーボール部</p>
+  <p class="ft-sub">このページはURLを知っている関係者のみ閲覧できます</p>
+</footer>
+
+<!-- ══════════════════════════════════════
+     DATA — ここを編集するだけで更新可能
+     （外部 data.json を fetch する場合は
+       loadData() を書き換えてください）
+══════════════════════════════════════ -->
+<script id="archiveData" type="application/json">
+[
+  {
+    "id": "PL-001",
+    "title": "令和7年度 第55回 長崎／全日本中学校バレーボール選手権大会",
+    "startDate": "2025-08-17",
+    "endDate": "2025-08-19",
+    "isMultiDay": true,
+    "year": 2025,
+    "category": "全国大会",
+    "catGroup": "公式戦",
+    "tournament": "令和7年度 第55回 長崎／全日本中学校バレーボール選手権大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IPqfXnzuiQurp6yz4vpAJuq",
+    "venue": "長崎大村シーハット\n諫早森山スポーツ交流館",
+    "sortOrder": 0,
+    "videos": [
+      "R7長崎全中 壮行会",
+      "R7長崎全国中学校バレーボール大会 開会式",
+      "R7長崎全中 #01 予選グループ戦 vs都城市立妻ヶ丘中 2-1 21-25 25- 20 28-26",
+      "R7長崎全中 #01 決勝トーナメント vsPROGRESS 2-0 25-14 25-19",
+      "R7長崎全中 #02 決勝トーナメント 熊本錦ケ丘 2-1 22-25 25-21 25-16",
+      "R7長崎全中 #03 決勝トーナメント vs大阪昇陽 0-2 16-25 19-25",
+      "R7長崎全中ありがとうin決起会",
+      "【偵察】R7長崎全中 H4小布施クラブvs大阪清風中 0-2 9-25 13-25",
+      "【偵察】R7長崎全中 B4浜松市立高台中vs PROGRESS倉敷 0-2 14-25 10-25",
+      "【偵察】R7長崎全中 A3松山鴨川中vs宇陀市立菟田野中 1-2 10-25 28-26 16-25"
+    ]
+  },
+  {
+    "id": "PL-002",
+    "title": "令和7年度 第60回 群馬／関東中学校バレーボール大会（1日目）",
+    "startDate": "2025-08-07",
+    "endDate": "2025-08-07",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "関東大会",
+    "catGroup": "公式戦",
+    "tournament": "令和7年度 第60回 群馬／関東中学校バレーボール大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IM0-RWQO2XbLHCp5CcGXqpl",
+    "venue": "ALSOKぐんまアリーナ",
+    "sortOrder": 0,
+    "videos": [
+      "R7関東大会 #01 第1試合 vs藤岡市立北中 2-0 25-12 25-18",
+      "R7関東大会 #90 vs藤岡市立北中コート横",
+      "R7関東大会 #91 応援",
+      "【偵察】R7関東大会 富士見西vs渕江 2-0 25-16 25-23",
+      "【偵察】R7関東大会 岡本vs大原2-0 25-13 25-19"
+    ]
+  },
+  {
+    "id": "PL-003",
+    "title": "令和7年度 第60回 群馬／関東中学校バレーボール大会（2日目）",
+    "startDate": "2025-08-08",
+    "endDate": "2025-08-08",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "関東大会",
+    "catGroup": "公式戦",
+    "tournament": "令和7年度 第60回 群馬／関東中学校バレーボール大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IOBIhiAj9wK7KWdqZXvW6Zs",
+    "venue": "ALSOKぐんまアリーナ",
+    "sortOrder": 0,
+    "videos": [
+      "R7関東大会 #02 第2試合 vs南足柄市立岡本中 2-0 25-8 25-18",
+      "R7関東大会 #03 準々決勝 vs富士見市立西中 0-2 25-27 20-25",
+      "R7関東大会 #90 円陣&挨拶",
+      "R7関東大会 #91 応援",
+      "R7関東大会 #92 岡本戦ハイライト",
+      "R7関東大会 #93 写真撮影",
+      "【偵察】R7関東大会 C3 駿台学園vs AEGIS 2-0 25-21 25-17",
+      "【偵察】R7関東大会 A3 榛東村立榛東中vs南六郷 0-2 25-20 25-19"
+    ]
+  },
+  {
+    "id": "PL-004",
+    "title": "令和7年度 第64回 東京都中学校バレーボール大会（1日目）",
+    "startDate": "2025-07-20",
+    "endDate": "2025-07-20",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "都大会",
+    "catGroup": "公式戦",
+    "tournament": "令和7年度 第64回 東京都中学校バレーボール大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4INhC5BVbtUoUlGWMkQG8dPY",
+    "venue": "国分寺五中",
+    "sortOrder": 0,
+    "videos": [
+      "R7東京都大会 #01 1回戦 vs大森二 2-0 25-18 25-19",
+      "R7東京都大会 #02 2回戦 vs成城 2-0 25-14 25-14",
+      "都大会1日目 #90応援席"
+    ]
+  },
+  {
+    "id": "PL-005",
+    "title": "令和7年度 第64回 東京都中学校バレーボール大会（2日目）",
+    "startDate": "2025-07-21",
+    "endDate": "2025-07-21",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "都大会",
+    "catGroup": "公式戦",
+    "tournament": "令和7年度 第64回 東京都中学校バレーボール大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IO7tJpifoCONCTl74G3cO87",
+    "venue": "聖徳学園",
+    "sortOrder": 0,
+    "videos": [
+      "R7東京都大会 #03 vs桐ケ丘 第3試合 2-0 25-14 25-16",
+      "R7東京都大会 #04 vs聖徳 リーグ戦第1試合 2-0 25-20 25-23",
+      "都大会2日目 #90 八木先生の舞",
+      "都大会2日目 #91応援席"
+    ]
+  },
+  {
+    "id": "PL-006",
+    "title": "令和7年度 第64回 東京都中学校バレーボール大会（3日目）",
+    "startDate": "2025-07-23",
+    "endDate": "2025-07-23",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "都大会",
+    "catGroup": "公式戦",
+    "tournament": "令和7年度 第64回 東京都中学校バレーボール大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4INis-ytVtsqZhIgLqiePfjR",
+    "venue": "東京体育館",
+    "sortOrder": 0,
+    "videos": [
+      "R7東京都大会 #05 vs駿台学園 リーグ戦第2試合 0-2 16-25 20-25",
+      "R7東京都大会 #06 vs#A##ARU リーグ戦第3試合 2-0 25-18 25-14",
+      "都大会3日目 #91応援席",
+      "都大会3日目 #92 vs南成瀬試合前後",
+      "都大会3日目 #93来賓",
+      "【偵察】R7東京都大会 #01 南六郷 vs Volare北多摩 2-1 25-20 23-25 25-20",
+      "【偵察】R7東京都大会 #02 リーグ戦 南六郷 vs 渕江 2-0 25-13 25-21"
+    ]
+  },
+  {
+    "id": "PL-007",
+    "title": "令和7年度 第64回 東京都中学校バレーボール大会（4日目）",
+    "startDate": "2025-07-28",
+    "endDate": "2025-07-28",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "都大会",
+    "catGroup": "公式戦",
+    "tournament": "令和7年度 第64回 東京都中学校バレーボール大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IOpmqylkv7AXIONDDd3QRUk",
+    "venue": "京王アリーナTOKYO",
+    "sortOrder": 0,
+    "videos": [
+      "R7東京都大会 順位決定戦 #01 vs南六郷 0-2 25-27 17-25",
+      "R7東京都大会 3位決定戦 #02 vs volare北多摩 0-2 22-25 20-25",
+      "R7東京都大会 #91 表彰式",
+      "R7東京都大会 順位決定戦 #92 入場・表彰",
+      "R7東京都大会 順位決定戦 #93 応援席",
+      "【偵察】R7東京都大会 駿台vs南六郷 2-1 19-25 25-19 25-20"
+    ]
+  },
+  {
+    "id": "PL-008",
+    "title": "令和7年度 JAAカップ",
+    "startDate": "2025-07-12",
+    "endDate": "2025-07-13",
+    "isMultiDay": true,
+    "year": 2025,
+    "category": "JAAカップ",
+    "catGroup": "招待・カップ戦",
+    "tournament": "令和7年度 JAAカップ",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4INuf0do4bt5BBlPnoQDYoiR",
+    "venue": "JAA日本航空（山梨）",
+    "sortOrder": 0,
+    "videos": [
+      "JAAカップ #01 vs中之口 25-23",
+      "JAAカップ #02 vs翔陵アカデミー 25-17",
+      "JAAカップ #03 vs高台 23-25",
+      "JAAカップ #04 vs山形六 25-9",
+      "JAAカップ #05 vsイズル 25-19",
+      "JAAカップ #06 vs新井 25-16",
+      "JAAカップ #07 vs上郷 2-0 25-20 25-22",
+      "JAAカップ #08 vs早渕2-1 20-25 25-20 25-23",
+      "JAAカップ #09 vs新井 1-1 22-25 25-23",
+      "【偵察】JAAカップ#02 修学舎vsAEGIS 1-1 28-26 19-25",
+      "【偵察】JAAカップ #01 早渕vs聖徳 1-1 23-25 25-20"
+    ]
+  },
+  {
+    "id": "PL-009",
+    "title": "令和7年度 第10ブロック予選",
+    "startDate": "2025-06-29",
+    "endDate": "2025-06-29",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "予選",
+    "catGroup": "公式戦",
+    "tournament": "令和7年度 第10ブロック予選大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IOOzyJ2LsUqTXEI0TIMiZby",
+    "venue": "立川三中",
+    "sortOrder": 0,
+    "videos": [
+      "第10ブロック大会 #01 vs小平六 2-0 25-9 25-6",
+      "第10ブロック大会 #02 vs小平四 2-0 25-5 25-10",
+      "第10ブロック大会 #03 vs立川三 2-0 25-17 25-16"
+    ]
+  },
+  {
+    "id": "PL-010",
+    "title": "練習試合（駿台、イージス、聖徳）",
+    "startDate": "2025-06-22",
+    "endDate": "2025-06-28",
+    "isMultiDay": true,
+    "year": 2025,
+    "category": "練習試合",
+    "catGroup": "練習・遠征",
+    "tournament": "",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IPBTyh5FQQMBXeey-ds3nbP",
+    "venue": "サレジオ",
+    "sortOrder": 0,
+    "videos": [
+      "練習試合 #01 vsイージス 23-25",
+      "練習試合 #02 vs駿台 21-25",
+      "練習試合 #01 vs聖徳 25-22"
+    ]
+  },
+  {
+    "id": "PL-011",
+    "title": "安田遠征",
+    "startDate": "2025-05-03",
+    "endDate": "2025-05-04",
+    "isMultiDay": true,
+    "year": 2025,
+    "category": "遠征",
+    "catGroup": "練習・遠征",
+    "tournament": "",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IPg5l0fXjxsfcmyPM9DjuFu",
+    "venue": "安田学園",
+    "sortOrder": 0,
+    "videos": [
+      "5/4 安田遠征 #08 vs小布施16-25",
+      "5/4 安田遠征 #07 vs光野25-16",
+      "5/4 安田遠征 #06 vs聖徳25-21",
+      "5/4 安田遠征 #05 vs早渕21-25",
+      "5/4 安田遠征 #04 vs安田25-22",
+      "5/4 安田遠征 #03 vs光野25-21",
+      "5/4 安田遠征 #02 vs早渕25-17",
+      "5/4 安田遠征 #01 vs清風17-25",
+      "5/3 安田遠征 #04 vsVolare北多摩25-19",
+      "5/3 安田遠征 #03 vs小布施25-9",
+      "5/3 安田遠征 #02 vs安田25-19",
+      "5/3 安田遠征 #01 vs清風 20-25"
+    ]
+  },
+  {
+    "id": "PL-012",
+    "title": "令和7年 多摩地区中学バレーボール大会",
+    "startDate": "2025-05-02",
+    "endDate": "2025-05-02",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "多摩地区大会",
+    "catGroup": "その他",
+    "tournament": "令和7年度 多摩地区中学バレーボール大会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IMJgEG0VknA6RcIgMiXUszu",
+    "venue": "サレジオ",
+    "sortOrder": 0,
+    "videos": [
+      "R7多摩地区中学バレーボール大会 #02 vs府中三2-0 25-10 25-9",
+      "R7多摩地区中学バレーボール大会 #01 vs明大明治2-0 25-2 25-4"
+    ]
+  },
+  {
+    "id": "PL-013",
+    "title": "令和7年 東亜杯",
+    "startDate": "2025-04-13",
+    "endDate": "2025-04-13",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "東亜杯",
+    "catGroup": "招待・カップ戦",
+    "tournament": "令和7年度 東亜杯",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IOjGbgVS2rjoab-edR_T_ch",
+    "venue": "東亜学園",
+    "sortOrder": 0,
+    "videos": [
+      "【偵察】東亜杯 渕江vs聖徳",
+      "【偵察】東亜杯 渕江vs Volare北多摩",
+      "【偵察】東亜杯 渕江vs南六郷",
+      "【偵察】東亜杯 渕江vs駿台学園",
+      "【偵察】東亜杯 渕江vs大森二",
+      "【偵察】東亜杯 渕江vs南成瀬",
+      "東亜杯 #08 準決勝 vs駿台学園 18-25",
+      "東亜杯 #07 vs駿台学園 19-25",
+      "東亜杯 #06 vs南六郷 14-25",
+      "東亜杯 #05 vsVolare北多摩 25-23",
+      "東亜杯 #04 vs聖徳 17-25",
+      "東亜杯 #03 vs渕江 25-16",
+      "東亜杯 #02 vs南成瀬 25-15",
+      "東亜杯 #01 vs大森ニ 25-9"
+    ]
+  },
+  {
+    "id": "PL-014",
+    "title": "新潟／第1回東日本中学バレーボール強化練習会",
+    "startDate": "2025-03-29",
+    "endDate": "2025-03-30",
+    "isMultiDay": true,
+    "year": 2025,
+    "category": "遠征",
+    "catGroup": "練習・遠征",
+    "tournament": "令和7年度 新潟第1回東日本中学バレーボール強化練習会",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IPJ706g4-CCv_5yY28mQUMR",
+    "venue": "新潟市立中之口中、他",
+    "sortOrder": 0,
+    "videos": [
+      "3/30 #10 vs南成瀬 21-25",
+      "3/30 #09 vs日本航空 25-15",
+      "3/30 #08 vs中之口 23-25",
+      "3/30 #07 vs VC新潟東 25-15",
+      "3/30 #06 vs吉江 25-23",
+      "3/30 #05 vs富士見西 25-17",
+      "3/30 #04 vs小布施 33-31",
+      "3/30 #03 vs VC新潟東 25-9",
+      "3/30 #02 vs南成瀬 25-12",
+      "3/30 #01 vs吉田 25-9",
+      "3/29 #10 vs中之口 25-11",
+      "3/29 #09 vs富士見西 25-20",
+      "3/29 #08 vs光野 25-7",
+      "3/29 #07 vs新井 25-18",
+      "3/29 #06 vs日本航空 25-15",
+      "3/29 #05 vs中之口 25-13",
+      "3/29 #04 vs富士見西 25-18",
+      "3/29 #03 vs南六郷 26-24",
+      "3/29 #02 vs吉江 25-17",
+      "3/29 #01 vs小布施 19-25"
+    ]
+  },
+  {
+    "id": "PL-015",
+    "title": "令和7年 下町カップ",
+    "startDate": "2025-03-23",
+    "endDate": "2025-03-23",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "下町カップ",
+    "catGroup": "招待・カップ戦",
+    "tournament": "令和7年度 下町カップ",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IOA_uasY-hth0xNGaBRXP05",
+    "venue": "忍丘中、安田学園",
+    "sortOrder": 0,
+    "videos": [
+      "下町カップ #07 決勝 vs駿台学園 0-2 18-25 23-25",
+      "下町カップ #06 vs 南六郷 1-1 23-25 25-18",
+      "下町カップ #05 vs聖徳 2-0 25-9 25-14",
+      "下町カップ #04 vs AEGIS 2-0 25-12 25-22",
+      "下町カップ #03 vs Drop JYVC 2-0 25-17 25-22",
+      "下町カップ #02 vs忍岡 2-0 25-14 25-6",
+      "下町カップ #01 vs金町 2-0 25-9 25-12",
+      "【偵察】下町カップ 渕江vs南成瀬"
+    ]
+  },
+  {
+    "id": "PL-016",
+    "title": "練習試合（武相、駿台学園、日本航空）",
+    "startDate": "2025-03-06",
+    "endDate": "2025-03-06",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "練習試合",
+    "catGroup": "練習・遠征",
+    "tournament": "",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IN0Jwbgu0mnPKrC2Fae-dIO",
+    "venue": "サレジオ",
+    "sortOrder": 0,
+    "videos": [
+      "練習試合 #03 vs日航 25-12",
+      "練習試合 #02 vs駿台 16-25",
+      "練習試合 #01 vs武相 25-18"
+    ]
+  },
+  {
+    "id": "PL-017",
+    "title": "練習試合（武相）",
+    "startDate": "2025-02-16",
+    "endDate": "2025-02-16",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "練習試合",
+    "catGroup": "練習・遠征",
+    "tournament": "",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IPk1ggwglr9SybT8s7Mr0Kc",
+    "venue": "サレジオ",
+    "sortOrder": 0,
+    "videos": [
+      "2025-02-16 練習試合 N01 vs武相 25-21"
+    ]
+  },
+  {
+    "id": "PL-018",
+    "title": "練習試合（AEGIS、駿台学園、東亜学園、Volare北多摩、日本航空）",
+    "startDate": "2025-02-11",
+    "endDate": "2025-02-11",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "練習試合",
+    "catGroup": "練習・遠征",
+    "tournament": "",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IO4-8ZoueRMdIbDeXcYF2Zf",
+    "venue": "東亜学園",
+    "sortOrder": 0,
+    "videos": [
+      "【偵察】2025-02-11 練習試合 駿台 vs AEGIS@東亜",
+      "練習風景 #01@東亜",
+      "練習試合 #08 vs Volare 22-25@東亜",
+      "練習試合 #07 vs東亜 32-34@東亜",
+      "練習試合 #06 vs駿台 17-25@東亜",
+      "練習試合 #05 vs日航 25-13@東亜",
+      "練習試合 #04 vs Volare北多摩 25-18@東亜",
+      "練習試合 #03 vs東亜 20-25@東亜",
+      "練習試合 #02 vs駿台 21-25@東亜",
+      "練習試合 #01 vsAEGIS 25-17@東亜"
+    ]
+  },
+  {
+    "id": "PL-019",
+    "title": "令和6年度 第20回 松平カップ",
+    "startDate": "2025-01-13",
+    "endDate": "2025-01-13",
+    "isMultiDay": false,
+    "year": 2025,
+    "category": "松平カップ",
+    "catGroup": "招待・カップ戦",
+    "tournament": "令和7年度 松平カップ",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IO5Biy7S1-qxeNty3Uay8OI",
+    "venue": "王子桜中、駿台学園",
+    "sortOrder": 0,
+    "videos": [
+      "松平カップ #07 決勝 vs駿台 0-2 14-25 13-25",
+      "松平カップ #06 準決勝 vs南六郷 2-1 22-25 25-17 25-20",
+      "松平カップ #05 準々決勝 vs聖徳 2-0 25-23 25-13",
+      "松平カップ #04 4回戦 vs金ヶ崎2-0 25-15 25-18",
+      "松平カップ #03 3回戦 vs上郷 2-0 25-16 25-17",
+      "松平カップ #02 2回戦 vs小岩一 2-0 25-11 25-3",
+      "松平カップ #01 1回戦vs貝塚 2-0 25-9 25-21",
+      "【偵察】松平カップ 駿台vs volare北多摩25-22"
+    ]
+  },
+  {
+    "id": "PL-020",
+    "title": "年明遠征（清風、昇陽、高川、光野、駿台学園、南六郷、他）",
+    "startDate": "2025-01-05",
+    "endDate": "2025-01-06",
+    "isMultiDay": true,
+    "year": 2025,
+    "category": "遠征",
+    "catGroup": "練習・遠征",
+    "tournament": "",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLOLc7X79T4IMWqjTlMUbI8pygaGoOP0U6",
+    "venue": "安田学園",
+    "sortOrder": 0,
+    "videos": [
+      "1/6 年明遠征 #07 vs駿台 18-25",
+      "1/6 年明遠征 #06 vs高川 12-25",
+      "1/6 年明遠征 #05 vs南六 19-25",
+      "1/6 年明遠征 #04 vs清風 22-25",
+      "1/6 年明遠征 #03 vs昇陽 26-28",
+      "1/6 年明遠征 #02 vs安田 25-21",
+      "1/6 年明遠征 #01 vs高川 25-21",
+      "1/5 【偵察】高川vs昇陽 21-25",
+      "1/5 【偵察】高川vs清風 14-25",
+      "1/5 【偵察】清風vs光野 25-18",
+      "1/5 【偵察】清風vs日本航空 25-19",
+      "1/5 年明遠征 #08 vs 昇陽 22-25",
+      "1/5 年明遠征 #07 vs清風 25-15",
+      "1/5 年明遠征 #06 vs高川 25-22",
+      "1/5 年明遠征 #05 vs光野 25-23",
+      "1/5 年明遠征 #04 vs高台 25-21",
+      "1/5 年明遠征 #03 vs光野 24-26",
+      "1/5 年明遠征 #02 vs高川 25-21",
+      "1/5 年明遠征 #01 vs昇陽 25-22"
+    ]
+  }
+]
+</script>
+
+<!-- ══════════════════════════════════════
+     APPLICATION SCRIPT
+══════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ── DATA LOAD ─────────────────────────
+   外部ファイル化する場合:
+   const DATA = await fetch('data.json').then(r=>r.json());
+   ──────────────────────────────────── */
+const DATA = JSON.parse(document.getElementById('archiveData').textContent);
+
+/* ── CONSTANTS ── */
+const WAREKI = {2026:'令和8年',2025:'令和7年',2024:'令和6年',2023:'令和5年'};
+const BADGE_CLS = {
+  '公式戦':'b-official','招待・カップ戦':'b-cup',
+  '練習・遠征':'b-practice','部内行事':'b-event','学校行事':'b-school'
+};
+const BADGE_ICON = {
+  '公式戦':'<path d="M8 2l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2 6.2l4-.6z"/>',
+  '招待・カップ戦':'<path d="M5 2h6v5a3 3 0 0 1-6 0V2z"/><path d="M5 4H3a2 2 0 0 0 0 4h2M11 4h2a2 2 0 0 0 0 4h-2"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="5" y1="14" x2="11" y2="14"/>',
+  '練習・遠征':'<circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>',
+  '部内行事':'<path d="M8 14s-5-4.5-5-7.5a5 5 0 0 1 10 0C13 9.5 8 14 8 14z"/>',
+  '学校行事':'<path d="M2 14V7l6-5 6 5v7"/><path d="M6 14v-4h4v4"/>'
+};
+
+/* ── STATE ── */
+let state = {
+  year: 'all',
+  cats: [],        // 複数選択
+  q: '',
+  sort: 'desc',
+  view: 'grid',
+  open: null       // 開いているカードID
+};
+
+/* ── HASH I/O ── */
+function hashToState() {
+  const p = new URLSearchParams(location.hash.slice(1));
+  if (p.has('year'))  state.year = p.get('year');
+  if (p.has('cats'))  state.cats = p.get('cats').split(',').filter(Boolean);
+  if (p.has('q'))     state.q    = p.get('q');
+  if (p.has('sort'))  state.sort = p.get('sort');
+  if (p.has('view'))  state.view = p.get('view');
+  if (p.has('open'))  state.open = p.get('open');
+}
+
+function stateToHash() {
+  const p = new URLSearchParams();
+  if (state.year !== '2026') p.set('year', state.year);
+  if (state.cats.length)     p.set('cats', state.cats.join(','));
+  if (state.q)               p.set('q',    state.q);
+  if (state.sort !== 'desc') p.set('sort', state.sort);
+  if (state.view !== 'grid') p.set('view', state.view);
+  if (state.open)            p.set('open', state.open);
+  const hash = p.toString();
+  history.replaceState(null,'', hash ? '#' + hash : location.pathname);
+}
+
+/* ── FILTER ── */
+function getFiltered() {
+  return DATA.filter(d => {
+    if (state.year !== 'all' && String(d.year) !== state.year) return false;
+    if (state.cats.length && !state.cats.includes(d.catGroup)) return false;
+    if (state.q) {
+      const q = state.q.toLowerCase();
+      const hay = (d.title + ' ' + d.tournament + ' ' + d.venue + ' ' + d.videos.join(' ')).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function getSorted(list) {
+  return [...list].sort((a,b) => {
+    const da=new Date(a.startDate), db=new Date(b.startDate);
+    return state.sort === 'asc' ? da-db : db-da;
+  });
+}
+
+/* ── DATE FORMAT ── */
+function fmtDate(s,e) {
+  const pad = n => String(n).padStart(2,'0');
+  const sd=new Date(s), ed=new Date(e);
+  const base = `${sd.getFullYear()}.${pad(sd.getMonth()+1)}.${pad(sd.getDate())}`;
+  if (s===e) return base;
+  if (sd.getFullYear()===ed.getFullYear() && sd.getMonth()===ed.getMonth())
+    return `${base}—${pad(ed.getDate())}`;
+  return `${base} — ${ed.getFullYear()}.${pad(ed.getMonth()+1)}.${pad(ed.getDate())}`;
+}
+
+/* ── BADGE HTML ── */
+function badge(d) {
+  const cls = BADGE_CLS[d.catGroup] || 'b-official';
+  const icon = BADGE_ICON[d.catGroup] || BADGE_ICON['公式戦'];
+  return `<span class="cat-badge ${cls}" role="img" aria-label="${d.catGroup}">
+    <svg viewBox="0 0 16 16" aria-hidden="true">${icon}</svg>${d.category}
+  </span>`;
+}
+
+/* ── CARD HTML ── */
+function cardHtml(d) {
+  const open = state.open === d.id;
+  const dateStr = fmtDate(d.startDate, d.endDate);
+  const vRows = d.videos.map((v,i)=>
+    `<div class="vlist-item">
+      <span class="vlist-num">${String(i+1).padStart(2,'0')}</span>
+      <span>${v}</span>
+    </div>`
+  ).join('');
+
+  const ytUrl = d.embedUrl.replace('embed/videoseries','playlist');
+
+  return `<article class="vcard${open?' open':''}" id="card-${d.id}" aria-expanded="${open}">
+    <button class="vcard-trigger"
+      onclick="toggleCard('${d.id}')"
+      aria-controls="panel-${d.id}"
+      aria-expanded="${open}">
+      <div class="vcard-meta">
+        ${badge(d)}
+        <span class="vcard-date">${dateStr}</span>
+      </div>
+      <h2 class="vcard-title">${d.title}</h2>
+      ${d.tournament ? `<p class="vcard-tournament">${d.tournament}</p>` : ''}
+      ${d.venue ? `<p class="vcard-venue">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2C5.8 2 4 3.8 4 6c0 3 4 8 4 8s4-5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>
+        ${d.venue}
+      </p>` : ''}
+      <div class="vcard-foot">
+        <span class="vcnt">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><polygon points="4,2 14,8 4,14"/></svg>
+          ${d.videos.length}本収録
+        </span>
+        <span class="vopen-btn" aria-hidden="true">
+          ${open ? '閉じる' : '動画を見る'}
+          <svg viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg>
+        </span>
+      </div>
+    </button>
+    <div class="vcard-panel" id="panel-${d.id}" role="region" aria-label="${d.title} 動画パネル">
+      <div class="vcard-panel-inner">
+        <div class="yt-hero">
+          <a class="yt-hero-btn" href="${ytUrl}" target="_blank" rel="noopener noreferrer"
+            aria-label="${d.title} をYouTubeで再生">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.5 15.6V8.4L16 12l-6.5 3.6z"/></svg>
+            YouTube再生リストで開く
+          </a>
+        </div>
+        <div class="vlist">
+          <p class="vlist-hd">収録動画一覧</p>
+          ${vRows}
+          <div class="vlist-actions">
+            <button class="share-btn" onclick="shareCard('${d.id}')" aria-label="このページのリンクをコピー">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="12" cy="4" r="2"/><circle cx="4" cy="8" r="2"/><circle cx="12" cy="12" r="2"/><line x1="10" y1="5" x2="6" y2="7"/><line x1="6" y1="9" x2="10" y2="11"/></svg>
+              リンクをコピー
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>`;
+}
+
+/* ── RENDER GRID ── */
+function renderGrid(items) {
+  const byYear = {};
+  items.forEach(d => { (byYear[d.year] = byYear[d.year]||[]).push(d); });
+  const years = Object.keys(byYear).sort((a,b)=> state.sort==='asc'?a-b:b-a);
+
+  if (!items.length) {
+    document.getElementById('gridView').innerHTML = emptyHtml();
+    return;
+  }
+
+  let html = '';
+  years.forEach(yr => {
+    const list = byYear[yr];
+    html += `<section aria-label="${yr}年度の動画">
+      <div class="sec-head">
+        <span class="sec-year">${yr}</span>
+        <span class="sec-wareki">${WAREKI[yr]||''}</span>
+        <span class="sec-cnt">${list.length}件</span>
+      </div>
+      <div class="card-grid" role="list">
+        ${list.map(d => `<div role="listitem" style="min-width:0">${cardHtml(d)}</div>`).join('')}
+      </div>
+    </section>`;
+  });
+  document.getElementById('gridView').innerHTML = html;
+}
+
+/* ── RENDER TIMELINE ── */
+function renderTimeline(items) {
+  if (!items.length) {
+    document.getElementById('timelineView').innerHTML = emptyHtml();
+    return;
+  }
+
+  const byMon = {};
+  items.forEach(d => {
+    const key = d.startDate.slice(0,7);
+    (byMon[key] = byMon[key]||[]).push(d);
+  });
+  const months = Object.keys(byMon).sort((a,b)=>state.sort==='asc'?a.localeCompare(b):b.localeCompare(a));
+
+  let html = '';
+  months.forEach((mon, mi) => {
+    const [yr, mo] = mon.split('-');
+    const list = byMon[mon];
+    const items_html = list.map(d => `
+      <div class="tl-item" role="button" tabindex="0"
+        aria-label="${d.title}（${fmtDate(d.startDate,d.endDate)}）グリッドで表示"
+        onclick="jumpToCard('${d.id}')"
+        onkeydown="if(event.key==='Enter'||event.key===' '){jumpToCard('${d.id}')}">
+        <div class="tl-item-top">
+          <span class="tl-item-title">${d.title}</span>
+          <span class="tl-item-date">${fmtDate(d.startDate,d.endDate)}</span>
+        </div>
+        <div class="tl-item-meta">
+          ${badge(d)}
+          ${d.venue ? `<span style="font-size:12px;color:var(--c-slate-light)">${d.venue}</span>` : ''}
+          <span style="font-size:12px;color:var(--c-slate)">${d.videos.length}本</span>
+        </div>
+      </div>`).join('');
+
+    html += `<div class="tl-month">
+      <div class="tl-mon-label" aria-hidden="true">
+        <div class="tl-mon-num">${mo}</div>
+        <div class="tl-mon-yr">${yr}</div>
+      </div>
+      <div class="tl-spine" aria-hidden="true">
+        <div class="tl-dot"></div>
+        ${mi < months.length-1 ? '<div class="tl-line"></div>' : ''}
+      </div>
+      <div class="tl-items" role="list" aria-label="${yr}年${mo}月">${items_html}</div>
+    </div>`;
+  });
+  document.getElementById('timelineView').innerHTML = html;
+}
+
+/* ── EMPTY HTML ── */
+function emptyHtml() {
+  return `<div class="empty" role="status">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="18" cy="18" r="12"/><line x1="27" y1="27" x2="37" y2="37"/><line x1="13" y1="18" x2="23" y2="18"/></svg>
+    <p class="empty-title">該当する動画が見つかりませんでした</p>
+    <p class="empty-sub">検索ワードやフィルターを変えてお試しください</p>
+  </div>`;
+}
+
+/* ── RENDER ── */
+function render() {
+  const filtered = getFiltered();
+  const sorted   = getSorted(filtered);
+  const cnt = `${filtered.length}件`;
+  document.getElementById('resultCount').textContent   = cnt;
+  document.getElementById('toolbarCount').textContent  = `${cnt}表示中`;
+
+  if (state.view === 'grid') {
+    document.getElementById('gridView').style.display = 'block';
+    document.getElementById('timelineView').classList.remove('active');
+    renderGrid(sorted);
+  } else {
+    document.getElementById('gridView').style.display = 'none';
+    document.getElementById('timelineView').classList.add('active');
+    renderTimeline(sorted);
+  }
+
+  syncUI();
+  stateToHash();
+}
+
+/* ── SYNC UI CONTROLS ── */
+function syncUI() {
+  // year tabs
+  document.querySelectorAll('.year-tab').forEach(btn => {
+    btn.setAttribute('aria-selected', btn.dataset.year === state.year ? 'true' : 'false');
+  });
+  // filter chips
+  document.querySelectorAll('.filter-chip').forEach(btn => {
+    btn.setAttribute('aria-pressed', state.cats.includes(btn.dataset.cat) ? 'true' : 'false');
+  });
+  // sort
+  document.getElementById('sortSel').value = state.sort;
+  // search
+  const si = document.getElementById('searchInput');
+  if (si.value !== state.q) si.value = state.q;
+  document.getElementById('clearSearch').style.display = state.q ? 'block' : 'none';
+  // view buttons
+  document.getElementById('btnGrid').setAttribute('aria-pressed', state.view==='grid'?'true':'false');
+  document.getElementById('btnTimeline').setAttribute('aria-pressed', state.view==='timeline'?'true':'false');
+}
+
+/* ── ACTIONS ── */
+window.toggleCard = function(id) {
+  state.open = state.open === id ? null : id;
+  render();
+  // scroll expanded card into view
+  if (state.open) {
+    requestAnimationFrame(() => {
+      const el = document.getElementById('card-' + id);
+      if (el) el.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+  }
+};
+
+window.setView = function(v) {
+  state.view = v;
+  render();
+};
+
+window.jumpToCard = function(id) {
+  state.view = 'grid';
+  state.open = id;
+  // find the card's year and switch to it if needed
+  const d = DATA.find(x=>x.id===id);
+  if (d && state.year !== 'all' && String(d.year) !== state.year) {
+    state.year = String(d.year);
+  }
+  render();
+  requestAnimationFrame(() => {
+    const el = document.getElementById('card-' + id);
+    if (el) el.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+};
+
+window.shareCard = function(id) {
+  const p = new URLSearchParams(location.hash.slice(1));
+  p.set('open', id);
+  const url = location.origin + location.pathname + '#' + p.toString();
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(()=>showToast('リンクをコピーしました'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = url; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    showToast('リンクをコピーしました');
+  }
+};
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+/* ── EVENT LISTENERS ── */
+document.querySelectorAll('.year-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    state.year = btn.dataset.year;
+    render();
+  });
+});
+
+document.querySelectorAll('.filter-chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.cat;
+    const idx = state.cats.indexOf(cat);
+    if (idx === -1) state.cats.push(cat);
+    else state.cats.splice(idx,1);
+    render();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  state.q = this.value.trim();
+  document.getElementById('clearSearch').style.display = state.q ? 'block' : 'none';
+  // 全年度に切り替え（検索時）
+  if (state.q && state.year !== 'all') {
+    state.year = 'all';
+  }
+  render();
+});
+
+document.getElementById('clearSearch').addEventListener('click', () => {
+  state.q = '';
+  document.getElementById('searchInput').value = '';
+  document.getElementById('clearSearch').style.display = 'none';
+  render();
+  document.getElementById('searchInput').focus();
+});
+
+document.getElementById('sortSel').addEventListener('change', function() {
+  state.sort = this.value;
+  render();
+});
+
+/* ── HASH NAVIGATION ── */
+window.addEventListener('popstate', () => { hashToState(); render(); });
+
+/* ── LAST UPDATED ── */
+function setLastUpdated() {
+  const latest = DATA.reduce((a,b)=>a.startDate>b.startDate?a:b);
+  const d = new Date(latest.startDate);
+  const s = `最終更新 ${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+  document.getElementById('lastUpdated').textContent = s;
+}
+
+/* ── INIT ── */
+hashToState();
+setLastUpdated();
+render();
+
+/* ── DYNAMIC HEADER HEIGHT ─────────────
+   ヘッダー高さを計測し、フィルターバーの
+   sticky top を動的に設定（ズーム・リサイズ対応）
+   ──────────────────────────────────── */
+function syncHeaderHeight() {
+  const hdr = document.getElementById('site-header');
+  if (!hdr) return;
+  const h = hdr.getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--header-h', h + 'px');
+}
+syncHeaderHeight();
+window.addEventListener('resize', syncHeaderHeight);
+// 画面回転時にも対応
+if (screen.orientation) {
+  screen.orientation.addEventListener('change', () => {
+    setTimeout(syncHeaderHeight, 100);
+  });
+}
+
+/* ── ZOOM RESET ────────────────────────
+   HTML の viewport meta で minimum/maximum-scale=1.0
+   を常時維持して等倍レンダリングを強制。
+   load 後にカードを全再描画することで、
+   画面外のキャッシュ済みタイルも等倍に更新する。
+   ──────────────────────────────────── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    // 全カードの DOM を再構築 → キャッシュタイルを破棄
+    render();
+    // スクロール位置をリセット
+    if (!location.hash) window.scrollTo(0, 0);
+    syncHeaderHeight();
+  }, 80);
+});
+
+// bfcache（戻る/進む）復帰時はリロードして等倍に戻す
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) location.reload();
+});
+</script>
+</body>
+</html>
